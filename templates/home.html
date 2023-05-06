@@ -4,9 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style/home.css">
+
+   
+    <title>Intelligent Dance Assistant - Персонализиран танцов асистент</title>
 </head>
-<body>
-    asdasdasdasd
+<body >
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparent w-100">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="#">Logo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 30 30&quot; width=&quot;30&quot; height=&quot;30&quot;&gt;%3Cline x1=&quot;3&quot; y1=&quot;12&quot; x2=&quot;27&quot; y2=&quot;12&quot; stroke=%22white%22 stroke-width=%222.5%22 stroke-linecap=%22round%22/%3E%3Cline x1=&quot;3&quot; y1=&quot;18&quot; x2=&quot;27&quot; y2=&quot;18&quot; stroke=%22white%22 stroke-width=%222.5%22 stroke-linecap=%22round%22/%3E%3Cline x1=&quot;3&quot; y1=&quot;24&quot; x2=&quot;27&quot; y2=&quot;24&quot; stroke=%22white%22 stroke-width=%222.5%22 stroke-linecap=%22round%22/%3E%3C/svg%3E');"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link text-white" aria-current="page" href="{{url_for('home')}}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Contacts</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Log In</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+      <div class="main">
+      <div class="text d-flex justify-content-center align-items-center  ">
+        <div class="row">
+          
+          <div class="col-md-8 col-lg-6 mx-auto text-center " >
+            <h1 class=" mb-4">Танцувай навсякъде</h1>
+            <p class="lead text-white mb-5">Intelligent Dance Assistant е перфектното приложение за всеки, обичащ танците. С IDA напредваш бързо дори от дома, офиса или парка, получаваш персонализирани препоръки и ставаш част от българското танцово общество. Развий танцовия си потенциал още днес!</p>
+            <a class="register" href="#">Регистрирай се сега</a>
+          </div>
+        
+        </div>
+
+      </div>
+      <div class="image">
+        <img src="../static/images/Images/ballerina.png" alt="">
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </body>
 </html>
