@@ -11,19 +11,18 @@
     <title>Intelligent Dance Assistant - Персонализиран танцов асистент</title>
 </head>
 <body >
-  <nav class="navbar navbar-expand-lg navbar-light bg-transparent w-100">
+  <nav class="navbar navbar-expand-lg navbar-light bg-black  w-100 sticky-top" style="background: black;">
     <div class="container-fluid">
-      <a class="navbar-brand text-white" href="#">Logo</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 30 30&quot; width=&quot;30&quot; height=&quot;30&quot;&gt;%3Cline x1=&quot;3&quot; y1=&quot;12&quot; x2=&quot;27&quot; y2=&quot;12&quot; stroke=%22white%22 stroke-width=%222.5%22 stroke-linecap=%22round%22/%3E%3Cline x1=&quot;3&quot; y1=&quot;18&quot; x2=&quot;27&quot; y2=&quot;18&quot; stroke=%22white%22 stroke-width=%222.5%22 stroke-linecap=%22round%22/%3E%3Cline x1=&quot;3&quot; y1=&quot;24&quot; x2=&quot;27&quot; y2=&quot;24&quot; stroke=%22white%22 stroke-width=%222.5%22 stroke-linecap=%22round%22/%3E%3C/svg%3E');"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link text-white" aria-current="page" href="{{url_for('home')}}">Home</a>
+            <a class="nav-link text-white" aria-current="page" href="#home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">About</a>
+            <a class="nav-link text-white" href="#about">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#">Services</a>
@@ -41,11 +40,11 @@
     </div>
   </nav>
   
-      <div class="main">
+      <div class="main" id="home">
       <div class="text d-flex justify-content-center align-items-center  ">
         <div class="row">
           
-          <div class="col-md-8 col-lg-6 mx-auto text-center " >
+          <div class="col-md-8 col-lg-6 mx-auto text-center fade-in" >
             <h1 class=" mb-4">Танцувай навсякъде</h1>
             <p class="lead text-white mb-5">Intelligent Dance Assistant е перфектното приложение за всеки, обичащ танците. С IDA напредваш бързо дори от дома, офиса или парка, получаваш персонализирани препоръки и ставаш част от българското танцово общество. Развий танцовия си потенциал още днес!</p>
             <a class="register" href="#">Регистрирай се сега</a>
@@ -54,10 +53,131 @@
         </div>
 
       </div>
-      <div class="image">
+      <div class="image fade-in">
         <img src="../static/images/Images/ballerina.png" alt="">
         </div>
     </div>
+    <hr>
+    <div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom text-center">За нас</h2>
+    </div>
+    <br><br>
+    
+    <div class="about" >
+
+      <br>
+      <div class="image_about fade-in">
+        <img src="../static/images/Images/about.jpg" alt="">
+      </div>
+      <div class="text d-flex justify-content-center align-items-center  ">
+        <div class="row">
+          
+          <div class="col-md-8 col-lg-6 mx-auto text-center">
+            <h1 class="mb-4 fade-in">Кои?</h1>
+            <p class="lead text-white mb-5 fade-in-delay">Ученици в 10 и 11 клас от България и Германия.</p>
+            <br>
+            <h1 class="mb-4 fade-in-delay">Защо?</h1>
+            <p class="lead text-white mb-5 fade-in-delay">Нашата мисия е да направим танците достъпни за всеки, който обича да танцува и иска да се учи. Вярваме, че всеки трябва да може да прави това, което обича. Приложението IDA е проектирано да помогне на хората да се научат да танцуват по ефективен и забавен начин.</p>
+            <br>
+            <h1 class="mb-4 fade-in-delay">Какво?</h1>
+            <p class="lead text-white mb-5 fade-in-delay">Нашият обучителен план е структуриран така, че начинаещите могат да научават основите, а опитните танцьори могат да изпълняват и усъвършенстват техниката си. За момента предлагаме в балет и постепенно ще добавяме различни стилове от народни танци до хип хоп.  Стремим се да създадем един танцов свят, в който всеки се чувства комфортно и уверено, докато се учи и социализира с други танцови ентусиасти.</p>
+            <br>
+          </div>
+          
+        
+        </div>
+
+      </div>
+    </div>
+    <hr>
+    <div class="container px-4 py-5" id="hanging-icons">
+      <h2 class="pb-2 border-bottom text-center">Услуги</h2>
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="col d-flex align-items-start">
+          <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+          </div>
+          <div>
+            <h2 class="border-bottom" style="font-size: 28px;">Обучителен план</h2>
+            <br>
+            <p>С IDA научаваш нови пози и ги упражняваш. От най-лесните пози до най-комплексните. Сам наблюдавай прогреса и повярвай, че можеш да постигнеш много.</p>
+
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+          </div>
+          <div>
+            <h2 class="border-bottom" style="font-size: 28px;">Персонална обратна връзка</h2>
+            <br>
+            <p>IDA оценява вашите движения и ви дава препоръки как да ги подобрите. Използваме AI технологията Human Pose Estimation. </p>
+
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+          </div>
+          <div>
+            <h2 class="border-bottom" style="font-size: 28px;" >Танцова социална медия</h2>
+            <br>
+            <p>Възможност танцьорите да се свързват помежду си, да обсъждат своя напредък, да споделят танцовия лайфстайл и сътрудничат по танцови проекти.</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="container px-4 py-5" id="hanging-icons">
+      <h2 class="pb-2 border-bottom text-center">Контакти</h2>
+      </div>
+    
+
+        <div class="container d-flex justify-content-center align-items-center" style="border: 0px solid;">
+
+
+
+                  <div class="col-lg-8">
+                    <div class="contact-wrap">
+                      <div id="form-message-warning" class="mb-4 w-100 text-center"></div> 
+
+                      <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                        <div class="row">
+                          <div class="col-md-12 ">
+                            <div class="form-group ">
+                              <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                            </div>
+                          </div>
+                          <div class="col-md-12"> 
+                            <div class="form-group">
+                              <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <textarea name="message" class="form-control" id="message" cols="30" rows="8" placeholder="Message"></textarea>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <input type="submit" value="Send Message" class="btn btn-primary">
+                              <div class="submitting"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
