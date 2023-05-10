@@ -1,12 +1,22 @@
-from flask import Flask, render_template, request, session, redirect , url_for
+from flask import Flask, render_template, request, session, redirect , url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 import hashlib
+import os
+import urllib.request
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///text.db'
 app.config['SECRET_KEY'] = '63103453574bccae5541fa05'
 db = SQLAlchemy(app)
 
+UPLOAD_FOLDER = 'static/uploads/'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 class User(db.Model):
     __tablename__ = 'user'
@@ -21,6 +31,31 @@ class User(db.Model):
 
 def home():
     return render_template("home.html")
+
+@app.route('/upload', methods=['POST', 'GET'])
+def upload_image():
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        if file.filename == '':
+            flash('No image selected for uploading')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            flash('Image successfully uploaded and displayed below')
+            return render_template('upload.html', filename=filename)
+        else:
+            flash('Allowed image types are - png, jpg, jpeg')
+            return redirect(request.url)
+    return render_template('upload.html')
+
+@app.route('/display/<filename>')
+def display_image(filename):
+    return redirect(url_for('static', filename='uploads/' + filename), code=301)
+
 
 
 @app.route('/login', methods=['GET', 'POST'])
