@@ -63,5 +63,7 @@
 *.max
 _pycache__
 instance/text.db
-
-
+.db
+instance
+.env
+instance/database.db

@@ -7,28 +7,9 @@ mp_pose = mp.solutions.pose
 mp_draw = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 
-imagein = "anime-girl-ballet-dancing-5911930.png"
+imagein = "anime-girl-ballet-dancing-5911930.jpg"
 image1 = cv2.imread(imagein)
-height = 480
-width = 480
 
-
-def resizeAndShow(image):
-    h, w = image.shape[:2]  # gets the current size of the image
-    if h > w:
-        image = cv2.resize(image, (height, math.floor(width * w / h)))
-    else:
-        image = cv2.resize(image, (math.floor(height * h / w), width))
-    cv2.imshow("Resized Image", image)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-
-
-resizeAndShow(image1)
-
-"""
-bones detection
-"""
 with mp_pose.Pose(static_image_mode=True, min_detection_confidence=0.3, model_complexity=2) as pose:
     results = pose.process(cv2.cvtColor(image1, cv2.COLOR_BGR2RGB))
     annotated_image = image1.copy()
