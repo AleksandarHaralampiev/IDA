@@ -3,4 +3,5 @@
 .jpe
 _pycache__
 instance/text.db
+.db
 
