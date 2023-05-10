@@ -1,42 +1,167 @@
-
+<!DOCTYPE html>
 <html>
 <head>
-<title>NIGGERS</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />        
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<title>UploadImage</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			background: linear-gradient(135deg, #ff9d6c, #ff6c5f, #ff1f66);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.container {
+			width: 80%;
+			padding: 30px;
+			text-align: center;
+			border-radius: 5px;
+			position: relative;
+			z-index: 1;
+		}
+		.overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(255, 205, 200, 0.25);
+            border-radius: 20px;
+			backdrop-filter: blur(3px);
+			z-index: -1;
+		}
+		h1 {
+			font-size: 36px;
+			margin-bottom: 20px;
+			color: #000;
+		}
+		h2 {
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		li {
+			margin-bottom: 5px;
+		}
+        input[type="file"] {
+            display: block;
+            margin: 0 auto; /* Center the input horizontally */
+            margin-bottom: 20px;
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
+        }
+        
+        .label-wrapper {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        .label-wrapper::before {
+            content: "Choose File";
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .label-wrapper:hover::before {
+            background-color: lightblue;
+            color: #000;
+        }
+          
+        input[type="submit"] {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            border: none;
+            padding: 20px 40px;
+            font-size: 18px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+          }
+          
+          input[type="submit"]:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 10px 5px rgba(0, 0, 0, 1);
+          }
+          
+		.container img {
+			max-width: 100%;
+			max-height: 300px;
+			margin-top: 10px;
+		}
+        .home-button {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 20px;
+            background-color: rgba(0, 100, 100, 0.3);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transition: box-shadow 0.3s;
+            text-decoration: none; /* Remove the underline */
+        }
+        
+        .home-button:hover {
+            box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8);
+        }        
+	</style>
 </head>
 <body>
-<div class="container">
-<div class="row">
-    <h2>Select a file to upload</h2>
-    <p>
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <ul>
-            {% for message in messages %}
-              <li>{{ message }}</li>
-            {% endfor %}
-            </ul>
-          {% endif %}
-        {% endwith %}
-    </p>
-    {% if filename %}
-        <div>
-            <img src="{{ url_for('display_image', filename=filename) }}">
-        </div>
-    {% endif %}
-    <form method="post" enctype="multipart/form-data">
-        <dl>
-            <p>
-                <input type="file" name="file" class="form-control" autocomplete="off" required>
-            </p>
-        </dl>
-        <p>
-            <input type="submit" value="Submit" class="btn btn-info">
-        </p>
-    </form>
-</div>
-</div>
+	<div class="container">
+		<h1>Intelligent Dance Assistant</h1>
+		<div>
+			<h2>Select a file to upload</h2>
+			<p>
+				{% with messages = get_flashed_messages() %}
+				  {% if messages %}
+				    <ul>
+				    {% for message in messages %}
+				      <li>{{ message }}</li>
+				    {% endfor %}
+				    </ul>
+				  {% endif %}
+				{% endwith %}
+			</p>
+            <form method="post" enctype="multipart/form-data">
+				<dl>
+                    <label class="label-wrapper">
+                        <input type="file" name="file" required>
+                    </label>
+				</dl>
+			{% if filename %}
+				<div>
+					<img src="{{ url_for('display_image', filename=filename) }}">
+				</div>
+			{% endif %}
+			<form method="post" enctype="multipart/form-data">
 
+				<p>
+					<input type="submit" value="Submit">
+				</p>
+			</form>
+        </div>
+    <div class="overlay"></div>
+    </div>
+    <a class="home-button" href="{{url_for('home')}}">Home Page</a>        
 </body>
 </html>
+        

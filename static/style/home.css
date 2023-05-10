@@ -9,9 +9,7 @@
 }
 
 body {
-    background: #0c0c0c;
-
-    background-color: black;
+    background: linear-gradient(135deg, #ff9d6c, #ff6c5f, #ff1f66, #690035, #3a0028);
     font-family: 'Tilt Neon', cursive;
     color: white;
     overflow-x: hidden;

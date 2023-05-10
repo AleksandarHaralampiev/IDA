@@ -11,7 +11,7 @@
     <title>Intelligent Dance Assistant - Персонализиран танцов асистент</title>
 </head>
 <body >
-  <nav class="navbar navbar-expand-lg navbar-light bg-black  w-100 sticky-top" style="background: black;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-black w-100 sticky-top" style="background: transparent; backdrop-filter: blur(20px);">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 30 30&quot; width=&quot;30&quot; height=&quot;30&quot;&gt;%3Cline x1=&quot;3&quot; y1=&quot;12&quot; x2=&quot;27&quot; y2=&quot;12&quot; stroke=%22white%22 stroke-width=%222.5%22 stroke-linecap=%22round%22/%3E%3Cline x1=&quot;3&quot; y1=&quot;18&quot; x2=&quot;27&quot; y2=&quot;18&quot; stroke=%22white%22 stroke-width=%222.5%22 stroke-linecap=%22round%22/%3E%3Cline x1=&quot;3&quot; y1=&quot;24&quot; x2=&quot;27&quot; y2=&quot;24&quot; stroke=%22white%22 stroke-width=%222.5%22 stroke-linecap=%22round%22/%3E%3C/svg%3E');"></span>
@@ -29,6 +29,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#contacts">Contacts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{{url_for('upload_image')}}">UploadImage</a>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
