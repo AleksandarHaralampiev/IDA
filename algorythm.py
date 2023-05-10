@@ -7,7 +7,7 @@ mp_pose = mp.solutions.pose
 mp_draw = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 
-imagein = "anime-girl-ballet-dancing-5911930.jpg"
+imagein = "seksi.jpg"
 image1 = cv2.imread(imagein)
 
 with mp_pose.Pose(static_image_mode=True, min_detection_confidence=0.3, model_complexity=2) as pose:
