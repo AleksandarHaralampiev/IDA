@@ -10,6 +10,9 @@
 
 body {
     font-family: 'Tilt Neon', cursive;
+    background-color: #c2eaba;
+    background-image: linear-gradient(319deg, #c2eaba 0%, #c5f4e0 37%, #efc2cf 100%);
+    
 }
 
 .profile {
