@@ -75,13 +75,14 @@ user_left_shoulder = calc_angle_four_points(left_shoulder, left_hip, left_should
 
 user=np.array([user_left_knee,user_right_knee,user_legs,user_body])
 message=["Keep your left leg straight","Keep your right leg straight","Lift your leg higher", "Lift your body"]
+goodMessage=["Your left leg is straight", "Your left leg is straight", "Your leg is high enough", "Your body position is good"
 arabesque= np.array([174.1, 179.5, 92.2, 70.5]) # ["Keep your left leg straight","Keep your right leg straight","Lift your leg higher", "Lift your body"])
 
 """Feedback"""
 
-def FeedbackAngle(user_angle,alpha, beta, gama, text): #1. user_angle- calculated angle, 2. alpha- desired angle, 3.beta - okay angle, 4. gama- bad angle, text- personal feedback text
+def FeedbackAngle(user_angle,alpha, beta, gama, text,goodtext): #1. user_angle- calculated angle, 2. alpha- desired angle, 3.beta - okay angle, 4. gama- bad angle, text- personal feedback text
   if (user_angle>=alpha):
-    print("Amazing")
+    print("Amazing"+goodtext)
   elif (alpha>user_angle>=beta):
     print("You are really close."+ text)
   else :
@@ -91,7 +92,7 @@ def FeedbackAngle(user_angle,alpha, beta, gama, text): #1. user_angle- calculate
 def FeedbackPose(users,arrayPose):
   item=0
   for ang in arrayPose:
-    FeedbackAngle(users[item], 0.9*ang,0.8*ang,0.7*ang,message[item])
+    FeedbackAngle(users[item], 0.9*ang,0.8*ang,0.7*ang,message[item],goodMessage[item])
     item=item+1
     
 FeedbackPose(user, arabesque)
