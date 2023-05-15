@@ -125,6 +125,7 @@ def upload_image():
                 return angle
 
 
+
             def calculate_slope(pointA, pointB, direction):
                 if direction == 'vertical':
                     return 90 - np.arctan((pointA[1] - pointB[1]) / (pointA[0] - pointB[0])) * 180 / np.pi
@@ -159,7 +160,6 @@ def upload_image():
             message=["Keep your left leg straight","Keep your right leg straight","Lift your leg higher", "Lift your body"]
             arabesque= np.array([174.1, 179.5, 92.2, 70.5]) # ["Keep your left leg straight","Keep your right leg straight","Lift your leg higher", "Lift your body"])
 
-            """Feedback"""
 
             def FeedbackAngle(user_angle, alpha, beta, gamma, text):
                 if user_angle >= alpha:
