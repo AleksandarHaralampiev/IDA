@@ -11,7 +11,9 @@ import mediapipe as mp
 import base64
 import tempfile
 import time
+
 app = Flask(__name__)
+application = app
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///text.db'
 app.config['SECRET_KEY'] = '63103453574bccae5541fa05'
