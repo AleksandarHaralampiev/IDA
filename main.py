@@ -176,10 +176,22 @@ def upload_image():
            def FeedbackPose(users, arrayPose):
                 feedback = []
                 item = 0
+                scoring_points=0
                 for ang in arrayPose:
-                    result = FeedbackAngle(users[item], 0.9 * ang, 0.8 * ang, 0.7 * ang, message[item])
+                    result = FeedbackAngle(users[item], 0.9 * ang, 0.8 * ang, 0.7 * ang, message[item],goodMessage[item])
+                    scoring_points=scoring_points + users[item]/ang
                     feedback.append(result)
                     item += 1
+                scoring_percent=round((scoring_points/item)*100, 2)
+                if (scoring_percent>100):
+                  sc='Total:100% Amazing'
+                elif (scoring_percent>=90):
+                  sc=f'Total:{scoring_percent}% Amazing'
+                elif (scoring_percent>=80):
+                 sc=f'Total:{scoring_percent}% Almost there!')
+                else:
+                  sc=f'Total: {scoring_percent}% Keep up the hard work!')
+                feedback.append(sc)
                 return feedback
             analysis = ', '.join(str(item) for item in FeedbackPose(user, arabesque))
 
