@@ -160,19 +160,20 @@ def upload_image():
 
             user=np.array([user_left_knee,user_right_knee,user_legs,user_body])
             message=["Keep your left leg straight","Keep your right leg straight","Lift your leg higher", "Lift your body"]
+            goodMessage=["your left leg is straight", "your left leg is straight", "your leg is high enough", "your body position is good"
             arabesque= np.array([174.1, 179.5, 92.2, 70.5]) # ["Keep your left leg straight","Keep your right leg straight","Lift your leg higher", "Lift your body"])
 
 
-            def FeedbackAngle(user_angle, alpha, beta, gamma, text):
-                if user_angle >= alpha:
-                    return "Amazing"
-                elif beta <= user_angle < alpha:
-                    return "You are really close. " + text
-                else:
-                    return "Keep up the hard work! " + text
+           def FeedbackAngle(user_angle,alpha, beta, gama, text,goodtext): #1. user_angle- calculated angle, 2. alpha- desired angle, 3.beta - okay angle, 4. gama- bad angle, text- personal feedback text
+             if (user_angle>=alpha):
+               print("Amazing"+goodtext)
+             elif (alpha>user_angle>=beta):
+               print("You are really close."+ text)
+             else :
+               print( "Keep up the hard work!"+text)
+    
 
-
-            def FeedbackPose(users, arrayPose):
+           def FeedbackPose(users, arrayPose):
                 feedback = []
                 item = 0
                 for ang in arrayPose:
