@@ -160,7 +160,7 @@ def upload_image():
 
             user=np.array([user_left_knee,user_right_knee,user_legs,user_body])
             message=["Keep your left leg straight","Keep your right leg straight","Lift your leg higher", "Lift your body"]
-            goodmessage=["your left leg is straight", "your left leg is straight", "your leg is high enough", "your body position is good"]
+            goodmessage=["your left leg is straight", "your right leg is straight", "your leg is high enough", "your body position is good"]
             arabesque = np.array([174.1, 179.5, 92.2, 70.5]) # ["Keep your left leg straight","Keep your right leg straight","Lift your leg higher", "Lift your body"])
 
 
