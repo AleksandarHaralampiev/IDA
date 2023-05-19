@@ -25,6 +25,20 @@ h1, h2, p {
     height: 100vh;
     display: flex;
 }
+    .logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .logo-container img {
+        max-width: 400px;
+        height: auto;
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 5px;
+    }
 
 .text {
     width: 50%;
