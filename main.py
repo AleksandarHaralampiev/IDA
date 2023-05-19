@@ -11,7 +11,9 @@ import mediapipe as mp
 import base64
 import tempfile
 import time
+
 app = Flask(__name__)
+application = app
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///text.db'
 app.config['SECRET_KEY'] = '63103453574bccae5541fa05'
@@ -125,6 +127,7 @@ def upload_image():
                 return angle
 
 
+
             def calculate_slope(pointA, pointB, direction):
                 if direction == 'vertical':
                     return 90 - np.arctan((pointA[1] - pointB[1]) / (pointA[0] - pointB[0])) * 180 / np.pi
@@ -157,32 +160,46 @@ def upload_image():
 
             user=np.array([user_left_knee,user_right_knee,user_legs,user_body])
             message=["Keep your left leg straight","Keep your right leg straight","Lift your leg higher", "Lift your body"]
-            arabesque= np.array([174.1, 179.5, 92.2, 70.5]) # ["Keep your left leg straight","Keep your right leg straight","Lift your leg higher", "Lift your body"])
-
-            """Feedback"""
-
-            def FeedbackAngle(user_angle, alpha, beta, gamma, text):
-                if user_angle >= alpha:
-                    return "Amazing"
-                elif beta <= user_angle < alpha:
-                    return "You are really close. " + text
-                else:
-                    return "Keep up the hard work! " + text
+            goodmessage=["your left leg is straight", "your right leg is straight", "your leg is high enough", "your body position is good"]
+            arabesque = np.array([174.1, 179.5, 92.2, 70.5]) # ["Keep your left leg straight","Keep your right leg straight","Lift your leg higher", "Lift your body"])
 
 
-            def FeedbackPose(users, arrayPose):
-                feedback = []
-                item = 0
-                for ang in arrayPose:
-                    result = FeedbackAngle(users[item], 0.9 * ang, 0.8 * ang, 0.7 * ang, message[item])
-                    feedback.append(result)
-                    item += 1
-                return feedback
+            def FeedbackAngle(user_angle,alpha, beta, gama, text,goodtext): #1. user_angle- calculated angle, 2. alpha- desired angle, 3.beta - okay angle, 4. gama- bad angle, text- personal feedback text
+                if (user_angle>=alpha):
+                    return goodtext
+                elif (alpha>user_angle>=beta):
+                    return text
+                else :
+                    return text
+        
+
+            def FeedbackPose(users, arraypose):
+                    feedback = []
+                    item = 0
+                    sc=[]
+                    scoring_points=0
+                    for ang in arraypose:
+                        result = FeedbackAngle(users[item], 0.9 * ang, 0.8 * ang, 0.7 * ang, message[item],goodmessage[item])
+                        scoring_points=scoring_points + users[item]/ang
+                        feedback.append(result)
+                        item += 1
+                    scoring_percent=round((scoring_points/item)*100, 2)
+                    if (scoring_percent>100):
+                     score='Total:100% Amazing'
+                    elif (scoring_percent>=90):
+                     score=f'Total:{scoring_percent}% Amazing'
+                    elif (scoring_percent>=80):
+                     score=f'Total:{scoring_percent}% Almost there!'
+                    else:
+                     score= f'Total: {scoring_percent}% Keep up the hard work!'
+                    feedback.append(score)
+                    return feedback
+                
             analysis = ', '.join(str(item) for item in FeedbackPose(user, arabesque))
 
         else:
             analysis = "No humans"
-        
+            
         time.sleep(5)
         with open(temp_filename, 'rb') as f:
             img_data = f.read()
