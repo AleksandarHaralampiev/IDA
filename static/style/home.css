@@ -148,6 +148,10 @@ h1, h2, p {
   }
 }
 
+.services img {
+  width: 400px;
+}
+
  :root {
     --blue: #007bff;
     --indigo: #6610f2;
